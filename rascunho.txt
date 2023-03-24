@@ -1,0 +1,35 @@
+  public static Map preencheAlfabeto() {
+        Integer i = 1;
+        Map<Integer, String> alfabeto = new HashMap<>(26);
+        char[] alfabetoChar = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
+                'k', 'l', 'm', 'n', 'o', 'p', 'q',
+                'r', 's', 't', 'u', 'v', 'z' };
+        for (char c : alfabetoChar) {
+            alfabeto.put(i, c + "");
+        }
+
+        return alfabeto;
+    }
+
+    public static int geraChave(String s) {
+        int chave = 0;
+        for (int i = 0; i < s.length(); i++) {
+            chave += alfabeto.get(i)
+        }
+        return chave;
+    }
+
+
+
+    Map<Integer, String> cidades = new HashMap<>(24);
+    Map alfabeto = preencheAlfabeto();
+
+
+    for (int i = 0; i < 24; i++) {
+                    for (int j = 0; j < 24; j++) {
+
+                        cidades.put(geraChave(data[i]), data[i]);
+                    }
+
+                    // cidades.put(data[i].hashCode(), data[i]);
+                }
