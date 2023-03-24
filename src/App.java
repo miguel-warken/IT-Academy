@@ -1,43 +1,25 @@
-
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
-import java.util.HashMap;
-import java.util.Map;
+
 
 public class App {
 
     public static void main(String[] args) {
-        // menu();
-        String nome = "src\\DNIT-Distancias.csv";
-        Map<String, Map<String, Integer>> cidades = new HashMap();
+        menu();
+        String caminho = "src\\DNIT-Distancias.csv";
 
         try {
-
-            BufferedReader reader = null;
-            reader = new BufferedReader(new FileReader(nome));
-            String line = "";
-
-            while ((line = reader.readLine()) != null) {
-
-                String data[] = line.split(";");
-
-            }
-
-            System.out.println(cidades);
-            reader.close();
-
+            DistanciasCidades tabela = new DistanciasCidades(caminho);
         } catch (IOException e) {
-
-            e.printStackTrace();
+            System.err.println("Erro ao ler arquivo");
         }
+
 
     }
 
     public static void menu() {
         int opcao;
-        String logo = dely();
+        String logo = getLogo();
         Scanner scan = new Scanner(System.in);
         System.out.println(logo
                 + "Olá! Bem-vindo à central de operações da Transportadora Dely! Por favor, selecione sua opção:\n1.[Consultar trechos x modalidade]\n2.[Cadastrar transporte]\n3.[Dados estatísticos]\n4.[Finalizar o programa]");
@@ -61,16 +43,7 @@ public class App {
         }
     }
 
-    public static int geraHashCode(String s) {
-        int novoHash = 0;
-        for (int i = 0; i < s.length(); i++) {
-            s.toLowerCase();
-            novoHash = s.charAt(i) - 'a' + 1;
-        }
-        return novoHash;
-    }
-
-    public static String dely() {
+    public static String getLogo() {
         return " .----------------.  .----------------.  .----------------.  .----------------.                                         \n"
                 +
                 "| .--------------. || .--------------. || .--------------. || .--------------. |                                        \n"
