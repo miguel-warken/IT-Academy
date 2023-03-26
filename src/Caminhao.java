@@ -1,32 +1,45 @@
-public abstract class Caminhao {
-    double precoKm;
-    // int acionados; //acionados são numeros de objetos, não um atributo
-    int id;
-    int pesoMax;
-    double pesoAtual;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
-    public Caminhao(double precoKm, int id, int pesoMax) {
-        this.precoKm = precoKm;
-        this.id = id;
-        this.pesoMax = pesoMax;
+public class Caminhao {
+    private double precoKm;
+    private int pesoMax;
+    private double pesoAtual;
+    //Campo pode existir ou não. Avisa de forma explícita
+    private Optional<Transporte> atual;
+    private final List<Transporte> finalizados;
+
+    public Caminhao() {
+        finalizados = new ArrayList<>();
+        this.pesoAtual =0;
     }
 
     public double getPrecoKm() {
         return precoKm;
     }
 
+    protected void setPrecoKm(double precoKm) {
+        this.precoKm = precoKm;
+    }
+
     public int getPesoMax() {
         return this.pesoMax;
+    }
+
+    protected void setPesoMax(int pesoMax) {
+        this.pesoMax = pesoMax;
     }
 
     public double getPesoAtual() {
         return this.pesoAtual;
     }
 
-    // public int getAcionados(){return this.acionados;}
+    protected void setPesoAtual(double pesoAtual) {
+        this.pesoAtual = pesoAtual;
+    }
 
-    public abstract double calculaViagem(int km, int[] cidades);
-
-    // public void adicionaPeso(double peso){};
-
+    public boolean suportaItem(Item item) {
+        return getPesoAtual()+ item.getPeso() <= getPesoMax();
+    }
 }

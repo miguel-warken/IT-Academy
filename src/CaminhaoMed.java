@@ -1,19 +1,12 @@
 public class CaminhaoMed extends Caminhao {
-    public CaminhaoMed(double precoKm, int id, int pesoMax) {
-        super(precoKm, id, pesoMax);
-        this.precoKm = 11.92;
-        this.pesoMax = 4000; // kg
-        this.id = id;
-
+    public CaminhaoMed() {
+        setPrecoKm(11.92);
+        setPesoMax(4000);
     }
 
     @Override
     public double getPrecoKm() {
-        return precoKm;
+        return super.getPrecoKm();
     }
 
-    @Override
-    public double calculaViagem(int km, int[] cidades) {
-        return 1;
-    }
 }

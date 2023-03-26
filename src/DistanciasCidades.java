@@ -9,6 +9,8 @@ import java.util.Map;
 
 public class DistanciasCidades {
     private final Map<String, Map<String, Integer>> cidades;
+    private String cidadeOrigem;
+    private String cidadeFinal;
 
     public DistanciasCidades(String caminho) throws IOException {
         cidades = new LinkedHashMap<>();
@@ -52,10 +54,32 @@ public class DistanciasCidades {
         }
     }
 
-    public Integer getDistancia(String cidadeOrigem, String cidadeDestino) {
+    public Integer getDistanciaTotal(String cidadeOrigem, String cidadeDestino) {
         if (!cidades.containsKey(cidadeOrigem) || !cidades.get(cidadeOrigem).containsKey(cidadeDestino)) {
             return null;
         }
         return cidades.get(cidadeOrigem).get(cidadeDestino);
     }
+
+    public boolean contains(String nomeCidade) {
+        return cidades.containsKey(nomeCidade);
+    }
+
+    public String getCidadeOrigem(){
+        return cidadeOrigem;
+    }
+
+    public void setCidadeOrigem(String cidadeOrigem){
+        this.cidadeOrigem = cidadeOrigem;
+    }
+
+    public String getCidadeFinal(){
+        return cidadeFinal;
+    }
+
+    public void setCidadeFinal(String cidadeFinal){
+        this.cidadeFinal = cidadeFinal;
+    }
 }
+
+

@@ -1,9 +1,9 @@
-public class Itens {
-    String nome;
-    int quantidade;
-    double peso;
+public class Item {
+    private String nome;
+    private int quantidade;
+    private double peso;
 
-    public Itens(String nome, int quantidade, double peso) {
+    public Item(String nome, int quantidade, double peso) {
         this.nome = nome;
         this.quantidade = quantidade;
         this.peso = peso;
@@ -33,3 +33,4 @@ public class Itens {
         this.peso = peso;
     }
 }
+
