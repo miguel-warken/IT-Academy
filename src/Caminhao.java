@@ -6,11 +6,12 @@ public class Caminhao {
     private double precoKm;
     private int pesoMax;
     private double pesoAtual;
-    //Campo pode existir ou não. Avisa de forma explícita
-    private Optional<Transporte> atual;
+    //Campo pode existir ou não. Avisa de forma explícita <- antigo, troquei para list
+    private List<Remessa> atual;
     private final List<Transporte> finalizados;
 
     public Caminhao() {
+        atual = new ArrayList<>();
         finalizados = new ArrayList<>();
         this.pesoAtual =0;
     }
@@ -41,5 +42,13 @@ public class Caminhao {
 
     public boolean suportaItem(Item item) {
         return getPesoAtual()+ item.getPeso() <= getPesoMax();
+    }
+
+    public void adicionarRemessa(Remessa remessa){
+        atual.add(remessa);
+    }
+
+    public void adicionarPeso(Double peso){
+        this.pesoAtual += peso;
     }
 }

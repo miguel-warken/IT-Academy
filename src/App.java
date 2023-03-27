@@ -79,7 +79,6 @@ public class App {
                         tabela.setCidadeFinal(cidadeDestino);
                         condicaoParada++;
                     }
-                    System.out.println("A cidade de destino não existe!");
                 }
                 else
                     System.out.println("Escreva cidades que constam em nosso sistema!");
@@ -158,7 +157,9 @@ public class App {
                 System.out.println("Nome do item: \nQuantidade de itens deste tipo: \nPeso de cada item: ");
                 nomeItem = scanner.nextLine();
                 quantidadeItem = scanner.nextInt();
+                scanner.nextLine();
                 pesoItem = scanner.nextInt();
+                scanner.nextLine();
                 Item itemCriado = new Item(nomeItem, quantidadeItem, pesoItem);
                 if(remessaCriada.adicionaItem(itemCriado)){
                     System.out.println("Item adicionado. Continuar adicionando? Se sim, digite qualquer coisa, se não, digite 'PRONTO'.");
@@ -168,6 +169,8 @@ public class App {
                     System.out.println("Não foi possível adicionar o item");
                 }
             } while (!condicaoParada.equals("PRONTO"));
+
+            novoTransporte.distribuirItens(remessaCriada.listaItens());
 
         } catch (InputMismatchException e){
             System.out.println("Por favor, insira apenas o solicitado");
